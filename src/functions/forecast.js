@@ -9,11 +9,7 @@ const forecast = (latitude,longitude,callback) => {
 			callback('another fucking error',undefined)
 		}else {
 			const current = body.current
-			callback(undefined,{
-				description:current.weather_descriptions[0],
-				temperature:current.temperature,
-				wind_speed:current.wind_speed + 'm/s'
-			})
+			callback(undefined,current.observation_time + "." + current.weather_descriptions + '. It is ' + current.temperature + ' degrees out.wind speed is '+ current.wind_speed + ' m/s.local time is ' + body.location.localtime + '.')
 		}
 	})
 }

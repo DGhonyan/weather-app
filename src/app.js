@@ -57,12 +57,11 @@ app.get('/weather',(req,res)=>{
 			return res.send({error})
 		}
 
-		forecast(latitude,longitude,(error,{description,temperature,wind_speed} = {})=>{
+		forecast(latitude,longitude,(error, forecast)=>{
 			if(error !== undefined){
 				return res.send({error})
 			}
-			const forecast =description + '. It is ' + temperature +' degrees out.wind speed is '+wind_speed
-			res.send({location,forecast})
+			res.send({forecast})
 		})
 	})
 })
